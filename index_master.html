@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Thesis</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles_master.css" />
+</head>
+<body>
+    <h1>Master Thesis</h1>
+    <div class="container">
+        <div class="description">
+            <h2><b>inDISCO</b>: <b>IN</b>terpretable <b>DIS</b>tributed <b>CO</b>llaborative learning for biomedical images</h2>
+            <p>Deep learning is fascinating <i class="fa-solid fa-wand-magic-sparkles fa-2xs"></i>. You can find its algorithms in the heart of self-driving cars, digital assistants, apps that make a photo look like an intergalactic selfie and in many other technological advances of the recent years. 
+                In healthcare, deep learning helps medical practitioners and scientists to analyse routine records, make a diagnosis from medical images, 
+                study biosignal and genomic data, and facilitate drug discovery [<a href="https://www.sciencedirect.com/science/article/abs/pii/S1566253520303651">1</a>].</p>
+            <p>Strict privacy policy often keeps medical data from a classical centralized learning (i.e. when all the data are on one device).
+                A promising solution is <b>DIS</b>tributed <b>CO</b>llaborative (<b>DISCO</b>) learning
+                which allows several data owners (clients) to learn a joint model without sharing data.
+            </p>
+            <p>Privacy in DISCO learning, however, comes at cost to data transperancy resulting in clients learning blindly from their collegues. Now imagine if some of these collegues have hidden systemic bias in their dataset. We call this situation
+                low data <em class="oper">interoperablity</em> and it often happens in the real-world. In this case, a final jointly trained model may not generalize well across all the participants. 
+                Another common issue with the state-of-the-art deep neural networks is their poor <em class="pret">interpretability</em>, i.e. we don't know <em>why</em> a model predicts what it predicts. 
+            </p>
+
+            <p>But what if we can build an algorithm to explore the data used in DISCO learning in an interpretable user-friendly way? What if we go further and claim that we can do it without compromizing clients' private data?
+                Developing such an algorithm was the goal of my Master Thesis at the <a href="https://www.epfl.ch/labs/mlo/igh-intelligent-global-health/">iGH</a> group at <a href="https://www.epfl.ch/en/">EPFL</a> and is a topic of my current research. Let's have a look at what we suggest. </p>
+            <p>We were inspired from the work of Chen et al [<a href="https://arxiv.org/abs/1806.10574">2</a>] and adapted their prototyical part learning network (<b>ProtoPNet</b>) to a DISCO setting. ProtoPNet is an interpretable-by-design network that has a human-friendly reasoning component. It bases its prediction on a similarity score 
+                between a test image and a set of learned prototypes for each category. With the help of this network, we developed an algorithm to identify a biased client in a privacy-preserving way. Within our <b>inDISCO</b> (<b>IN</b>terpretable <b>DIS</b>tributed <b>CO</b>llaborative) approach, clients learn 
+                <b class="local">local</b> prototypes on their private datasets and <b class="global">global</b> ones via communication with each other. </p>
+            <p>After training, each client can compare local and global prototypes on its own test set by means of prototype visualization, i.e. by finding regions in the images most similar to the learned prototypes. In case of bias, there will be large diference between the global and local prototypes. </p>
+            <p>We demostrated our approach on classifying cardiomegaly and pleural effusion in the human X-ray images [<a href="https://stanfordmlgroup.github.io/competitions/chexpert/">3</a>].
+                Cardiomegaly is a health condition characterized by an enlarged heart. Just as us, humans, would do, both local and global models learn this heart or its parts as prototypes for cardiomegaly class in the absence of data bias (first row, first two columns). To experiment with a simple bias, we added a small red emoji of a mouse in the left upper corner of the images in the cardiomegaly class of one of the clients. 
+                This little mouse has changed the game! Now, a local model trained solely on biased data learns an amoji as a prototype (second row, first column). However, a global model
+                which learns its prototypes in communication with unbiased clients doesn't look at the emoji and prefers the neighboring region. This visual difference between local and global prototypes indicates the presence of incompatible data in the federation.
+            </p>
+            <p>Pleural effusion is an accumulation of fluid between the visceral and parietal pleural membranes that line the lungs and chest cavity. For this class, unbiased prototypes are mostly bottom part of the lungs.
+                Since patients with pleural effusion often get chest drains to eliminate the fluid from their lungs, these drains can bias the prediction of pleural effusion.
+                You can see this situation on the right: prototype in the first column second row is far from the bottom of the lungs because a local model relies on the presence of chest drain to predict pleural effusion and not on the presence of fluid in the lungs. And again, there is a clear difference between local and global prototypes in a biased case (second row, second column).
+            </p>
+            <p>Our current work is to study the trade-off between privacy and ease of bias identification by varying the amount of network parameters to share. This will allow clients to decide how much information they are ready to communicate depending on their data sensitivity.</p>
+            <p>To be continued <i class="fa-solid fa-mug-hot fa-xs"></i></p>
+        </div>
+        <div class="images">
+            <p>Supervisers: <a href="https://www.yale-light.org/">Prof. Mary-Anne Hartley,</a> <a href="https://people.epfl.ch/martin.jaggi">Prof. Martin Jaggi </a>
+                <br>External advisor: <a href="https://spkreddy.org/">Dr. Sai Praneeth Karimireddy</a></p>
+            <figure class="scheme">
+                <img src="simple_scheme.png" alt="scheme">
+                <figcaption>inDISCO approach</figcaption>
+            </figure>
+
+            <figure class="prototypes">
+                <img src="prots_cardio.png" alt="prototypes_cardio">
+                <figcaption>Examples of a test image with bounding boxes indicating the most activated patches 
+                    by the prototypes learned locally and globally on <b class="unbiased">unbiased</b> and <b class="biased">biased</b> CheXpert datasets in a federated setting for <em>Cardiomegaly</em> classification.</figcaption>
+            </figure>
+
+            <figure class="prototypes">
+                <img src="pleural_prots.png" alt="prototypes_pleural">
+                <figcaption>Examples of a test image with bounding boxes indicating the most activated patches 
+                    by the prototypes learned locally and globally on <b class="unbiased">unbiased</b> and <b class="biased">biased</b> CheXpert datasets in a federated setting for <em>Pleural effusion</em> classification.</figcaption>
+            </figure>
+        </div>
+    </div>
+    <!-- <div class="up_back">
+        <div class="up">
+            <p><a href="#top">Up</a></p>
+        </div> -->
+        <div class="back">
+            <p><a href="index.html">Back to the main page</a></p>
+        </div>
+    <!-- </div> -->
+</body>
