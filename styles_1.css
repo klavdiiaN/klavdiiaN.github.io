@@ -231,8 +231,12 @@ body{
 
 @media(max-width: 786px){
     .profile-card{
+        width: 80%;
         max-width: 400px;
         position: relative;
+        align-items: center;
+        padding: 2rem;
+        margin: 2rem;
     }
     .about{
         width: 1005;
