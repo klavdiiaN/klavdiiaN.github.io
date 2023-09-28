@@ -1,5 +1,0 @@
-Hello! I am a research intern in interpretable federated learning for medicine at the [iGH Group](https://www.epfl.ch/labs/mlo/igh-intelligent-global-health/) 
-of the [MLO Lab](https://www.epfl.ch/labs/mlo/) at [École Polytechnique Fédérale de Lausanne (EPFL)](https://www.epfl.ch/en/).
-
-My work aims to develop algorithms to help medical practitioners easily understand and use deep learning models in resourse limited settings.
-
