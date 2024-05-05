@@ -149,8 +149,8 @@ body{
     position: absolute;
     content: "";
     top: 60%;
-    right: -53%;
-    width: 50%;
+    right: -45%;
+    width: 43%;
     height: 3px;
     background: linear-gradient(45deg, #9a8892, #587372);
 }
