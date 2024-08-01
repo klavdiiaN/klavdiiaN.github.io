@@ -1,11 +1,12 @@
-1. Richard Dawkins. The Selfish Gene
-2. Richard Dawkins. The God Delusion
-3. Richard Dawkins. A Devil's Chaplain
-4. Stephen Hawking. Brief Answers to the Big Questions
-5. Carl Sagan. The Demon-Haunted World
-6. Paul de Kruif. Microbe Hunters
-7. Kristen Ghodsee. Why Women Have Better Sex Under Socialism
-8. Андрей Яковлев. Страна Отходов
-9. Susan Cain. Quiet
-10. Judea Pearl & Dana Mackenzie. The Book of Why
-11. Abhijit V. Banerjee & Esther Duflo. Poor Economics
+1. Caroline Criado Perez. Invisible Women
+2. Richard Dawkins. The Selfish Gene
+3. Richard Dawkins. The God Delusion
+4. Richard Dawkins. A Devil's Chaplain
+5. Susan Cain. Quiet
+6. Stephen Hawking. Brief Answers to the Big Questions
+7. Carl Sagan. The Demon-Haunted World
+8. Paul de Kruif. Microbe Hunters
+9. Kristen Ghodsee. Why Women Have Better Sex Under Socialism
+10. Андрей Яковлев. Страна Отходов 
+11. Judea Pearl & Dana Mackenzie. The Book of Why
+12. Abhijit V. Banerjee & Esther Duflo. Poor Economics
